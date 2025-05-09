@@ -23,7 +23,7 @@ type Record = {
 };
 export default function Account() {
   const router = useRouter();
-  const { user, isLoading } = useAuth();
+  const { user } = useAuth();
   const [type, setType] = useState<"income" | "expense">("income");
   const [amount, setAmount] = useState<number>(0);
   const [content, setContent] = useState<string>("");
