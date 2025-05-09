@@ -1,4 +1,5 @@
 "use client";
+import Check from "./check";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
 import { db } from "../firebase/firebase";
@@ -23,12 +24,13 @@ type Record = {
 };
 export default function Account() {
   const router = useRouter();
-  const { user } = useAuth();
+  const { user, isLoading } = useAuth();
   const [type, setType] = useState<"income" | "expense">("income");
   const [amount, setAmount] = useState<number>(0);
   const [content, setContent] = useState<string>("");
   const [record, setRecord] = useState<Record[]>([]);
   useEffect(() => {
+    if (isLoading) return;
     if (!user) {
       router.push("/");
       return;
@@ -48,8 +50,8 @@ export default function Account() {
       setRecord(recordsFromDb);
     };
     fetchData();
-  }, [user, router]);
-
+  }, [user, router, isLoading]);
+  if (isLoading) return <Check />;
   const handleAdd = async () => {
     if (!user || amount === 0 || content === "") return;
     try {
