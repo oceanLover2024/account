@@ -22,7 +22,7 @@ export default function Home() {
       alert("登入成功");
     } catch (error) {
       alert("登入失敗");
-      console.log((error as any).message);
+      if (error instanceof Error) console.log(error.message);
     }
   };
   const handleRegister: React.FormEventHandler<HTMLFormElement> = async (e) => {
@@ -36,7 +36,7 @@ export default function Home() {
       alert("註冊成功");
     } catch (error) {
       alert("註冊失敗");
-      console.log((error as any).message);
+      if (error instanceof Error) console.log(error.message);
     }
   };
 

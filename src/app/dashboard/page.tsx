@@ -29,7 +29,10 @@ export default function Account() {
   const [content, setContent] = useState<string>("");
   const [record, setRecord] = useState<Record[]>([]);
   useEffect(() => {
-    if (!user) return router.push("/");
+    if (!user) {
+      router.push("/");
+      return;
+    }
     const fetchData = async () => {
       const databaseData = query(
         collection(db, "records"),
@@ -45,7 +48,7 @@ export default function Account() {
       setRecord(recordsFromDb);
     };
     fetchData();
-  }, []);
+  }, [user, router]);
 
   const handleAdd = async () => {
     if (!user || amount === 0 || content === "") return;
