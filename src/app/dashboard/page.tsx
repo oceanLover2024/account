@@ -1,5 +1,5 @@
 "use client";
-import Check from "./check";
+import Check from "./Check";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
 import { db } from "../firebase/firebase";
