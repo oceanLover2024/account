@@ -1,0 +1,29 @@
+.account_form {
+  height: 80px;
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+.account_detail {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+.input_form {
+  display: flex;
+  gap: 10px;
+}
+.list {
+  display: flex;
+  margin-bottom: 10px;
+}
+.amount {
+  width: 50%;
+  text-align: left;
+}
+.content {
+  width: 38%;
+}
+.total {
+  margin: 10px;
+}
